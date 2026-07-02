@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { X, Check } from 'lucide-react';
 import './Compare.css';
 
+const FALLBACK_IMG = '/images/colleges/placeholder.svg';
+
 const Compare = () => {
   const { compareList, toggleCompare } = useContext(AppContext);
   
@@ -37,7 +39,7 @@ const Compare = () => {
                     <button className="remove-btn" onClick={() => toggleCompare(c.id)} title="Remove">
                       <X size={16} />
                     </button>
-                    <img src={c.gallery[0]} alt={c.name} className="compare-img" />
+                    <img src={c.gallery[0]} alt={c.name} className="compare-img" onError={(e) => { e.target.src = FALLBACK_IMG }} />
                     <Link to={`/college/${c.id}`}><h3 className="heading-3 mt-2">{c.shortName}</h3></Link>
                     <p className="small-text">{c.category}</p>
                   </div>

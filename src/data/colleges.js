@@ -15,11 +15,7 @@ export const colleges = [
     nirfRank: '89',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/3/36/RV_College_of_Engineering_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-      'https://images.unsplash.com/photo-1592289659353-8d0705307b22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/rvce/gallery_0.webp'],
     overview: 'RV College of Engineering is a premier institute in Bangalore known for its rigorous academics and outstanding placements in top tech companies.',
     coursesOffered: ['Computer Science', 'Information Science', 'Electronics & Communication', 'Mechanical', 'Civil'],
     eligibility: '10+2 with 45% aggregate in Physics, Mathematics and Chemistry/Biology/Computer Science.',
@@ -51,11 +47,7 @@ export const colleges = [
     nirfRank: '100',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/e/e4/PES_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
-      'https://images.unsplash.com/photo-1606761568499-6d2451b08c66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80',
-      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/pesu/gallery_0.webp'],
     overview: 'PES University provides a modern curriculum and is heavily favored for its exceptional coding culture and startup ecosystem.',
     coursesOffered: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Biotechnology'],
     eligibility: '10+2 with 50% aggregate in PCMB/CS.',
@@ -87,10 +79,7 @@ export const colleges = [
     nirfRank: '78',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/9/91/Ramaiah_Institute_of_Technology_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80',
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/msrit/gallery_0.webp'],
     overview: 'MSRIT is one of the oldest and most reputed engineering colleges in Bangalore with excellent industry tie-ups.',
     coursesOffered: ['CSE', 'ISE', 'AIML', 'ECE', 'Mechanical'],
     eligibility: '10+2 with 45% aggregate in Physics, Mathematics.',
@@ -121,9 +110,7 @@ export const colleges = [
     nirfRank: '83',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/c/cb/BMS_College_of_Engineering.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/bmsce/gallery_0.webp'],
     overview: 'BMSCE is known for its beautiful campus in Basavanagudi and strong core engineering branches.',
     coursesOffered: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil'],
     eligibility: '10+2 with 45% aggregate.',
@@ -154,9 +141,7 @@ export const colleges = [
     nirfRank: '150+',
     naacGrade: 'A',
     logo: 'https://upload.wikimedia.org/wikipedia/en/4/4c/Dayananda_Sagar_Institutions_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1621287955502-18ee911fb6b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/dsce/dsce.svg'],
     overview: 'DSCE features one of the most vibrant campuses in Bangalore and provides solid placement opportunities.',
     coursesOffered: ['CSE', 'ISE', 'ECE', 'Aeronautical', 'Automobile'],
     eligibility: '10+2 with 45% aggregate.',
@@ -187,9 +172,7 @@ export const colleges = [
     nirfRank: '160+',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/2/2f/Nitte_Meenakshi_Institute_of_Technology_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1592289659353-8d0705307b22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/nmit/nmit.svg'],
     overview: 'NMIT is an autonomous institution known for its discipline and growing placement records.',
     coursesOffered: ['CSE', 'ISE', 'ECE', 'Civil'],
     eligibility: '10+2 with 45% aggregate.',
@@ -221,9 +204,7 @@ export const colleges = [
     nirfRank: '60',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Christ_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/christ-bba/gallery_0.webp'],
     overview: 'Christ University is synonymous with excellence in management studies with an incredibly diverse student body.',
     coursesOffered: ['BBA', 'BBA (Hons)', 'BBA Finance'],
     eligibility: '10+2 from any recognized board.',
@@ -254,9 +235,7 @@ export const colleges = [
     nirfRank: '85',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/6/69/Jain_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/jain-bba/gallery_0.webp'],
     overview: 'Jain University offers highly specialized BBA programs with global certifications.',
     coursesOffered: ['BBA', 'BBA (Aviation)', 'BBA (Finance)'],
     eligibility: '10+2 from any recognized board.',
@@ -287,9 +266,7 @@ export const colleges = [
     nirfRank: '100+',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/6/61/Mount_Carmel_College_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/mcc-bba/gallery_0.webp'],
     overview: 'One of the premier autonomous colleges for women, offering a vibrant culture and solid academics.',
     coursesOffered: ['BBA Regular', 'BBA Analytics'],
     eligibility: '10+2 from any recognized board.',
@@ -320,9 +297,7 @@ export const colleges = [
     nirfRank: '120+',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/1/1a/St_Josephs_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/sju-bba/gallery_0.webp'],
     overview: 'SJU is a historic institution known for humanities and commerce with a legacy of excellence.',
     coursesOffered: ['BBA Regular', 'BBA Strategic Finance'],
     eligibility: '10+2 from any recognized board.',
@@ -353,9 +328,7 @@ export const colleges = [
     nirfRank: '150+',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/d/d4/Kristu_Jayanti_College_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/kjc-bba/gallery_0.webp'],
     overview: 'Emerging as one of the best management colleges with a focus on holistic development.',
     coursesOffered: ['BBA Regular', 'BBA Aviation'],
     eligibility: '10+2 from any recognized board.',
@@ -387,9 +360,7 @@ export const colleges = [
     nirfRank: '60',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Christ_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/christ-bcom/gallery_0.webp'],
     overview: 'Christ is highly sought after for its rigorous B.Com programs and industry readiness.',
     coursesOffered: ['B.Com Regular', 'B.Com F&A', 'B.Com Professional'],
     eligibility: '10+2 from any recognized board.',
@@ -420,9 +391,7 @@ export const colleges = [
     nirfRank: '120+',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/1/1a/St_Josephs_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/sju-bcom/gallery_0.webp'],
     overview: 'Offers excellent commerce education with a strong focus on ethics and holistic growth.',
     coursesOffered: ['B.Com Regular', 'B.Com Industry Integrated'],
     eligibility: '10+2 from any recognized board.',
@@ -453,9 +422,7 @@ export const colleges = [
     nirfRank: '100+',
     naacGrade: 'A+',
     logo: 'https://upload.wikimedia.org/wikipedia/en/6/61/Mount_Carmel_College_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80'
-    ],
+    gallery: ['/images/colleges/mcc-bcom/gallery_0.webp'],
     overview: 'A top choice for women looking for commerce education in a premier institute.',
     coursesOffered: ['B.Com Regular', 'B.Com Professional'],
     eligibility: '10+2 from any recognized board.',
@@ -486,9 +453,7 @@ export const colleges = [
     nirfRank: '85',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/6/69/Jain_University_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/jain-bcom/gallery_0.webp'],
     overview: 'Known for its integrated B.Com programs (ACCA, CMA, CA).',
     coursesOffered: ['B.Com (Hons)', 'B.Com + ACCA', 'B.Com + CMA'],
     eligibility: '10+2 from any recognized board.',
@@ -519,9 +484,7 @@ export const colleges = [
     nirfRank: '150+',
     naacGrade: 'A++',
     logo: 'https://upload.wikimedia.org/wikipedia/en/d/d4/Kristu_Jayanti_College_logo.png',
-    gallery: [
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
-    ],
+    gallery: ['/images/colleges/kjc-bcom/gallery_0.webp'],
     overview: 'Excellent campus environment with a growing reputation in commerce.',
     coursesOffered: ['B.Com Regular', 'B.Com ACCA Integrated'],
     eligibility: '10+2 from any recognized board.',

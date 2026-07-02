@@ -4,6 +4,8 @@ import { AppContext } from '../context/AppContext';
 import { Heart, BarChart2, MapPin, Award, IndianRupee } from 'lucide-react';
 import './CollegeCard.css';
 
+const FALLBACK_IMG = '/images/colleges/placeholder.svg';
+
 const CollegeCard = ({ college }) => {
   const { favorites, toggleFavorite, compareList, toggleCompare } = useContext(AppContext);
   
@@ -14,7 +16,7 @@ const CollegeCard = ({ college }) => {
     <div className="card college-card animate-fade-in">
       <div className="card-header">
         <div className="card-image-wrap">
-          <img src={college.gallery[0]} alt={college.name} className="card-image" loading="lazy" />
+          <img src={college.gallery[0]} alt={college.name} className="card-image" loading="lazy" onError={(e) => { e.target.src = FALLBACK_IMG }} />
           <div className="card-badges">
             {college.nirfRank && <span className="badge">NIRF {college.nirfRank}</span>}
             {college.naacGrade && <span className="badge">NAAC {college.naacGrade}</span>}

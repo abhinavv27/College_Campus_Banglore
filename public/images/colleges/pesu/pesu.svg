@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+<rect width="400" height="300" fill="#DC2626"/>
+<rect x="100" y="60" width="200" height="140" rx="8" fill="rgba(255,255,255,0.15)"/>
+<rect x="130" y="90" width="140" height="10" rx="4" fill="rgba(255,255,255,0.35)"/>
+<rect x="150" y="115" width="100" height="10" rx="4" fill="rgba(255,255,255,0.25)"/>
+<rect x="140" y="140" width="120" height="10" rx="4" fill="rgba(255,255,255,0.25)"/>
+<rect x="160" y="165" width="80" height="10" rx="4" fill="rgba(255,255,255,0.25)"/>
+<rect x="100" y="220" width="200" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+<text x="200" y="250" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="bold">PESU</text>
+<text x="200" y="270" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="sans-serif">commons photo n/a</text>
+</svg>

@@ -5,6 +5,8 @@ import { colleges } from '../data/colleges';
 import { MapPin, Globe, Award, IndianRupee, Briefcase, GraduationCap, Building } from 'lucide-react';
 import './CollegeDetails.css';
 
+const FALLBACK_IMG = '/images/colleges/placeholder.svg';
+
 const CollegeDetails = () => {
   const { id } = useParams();
   const { favorites, toggleFavorite, compareList, toggleCompare } = useContext(AppContext);
@@ -26,7 +28,7 @@ const CollegeDetails = () => {
     <div className="animate-fade-in college-details-page">
       {/* Hero Banner */}
       <div className="details-hero">
-        <img src={college.gallery[0]} alt={college.name} className="hero-bg" />
+        <img src={college.gallery[0]} alt={college.name} className="hero-bg" onError={(e) => { e.target.src = FALLBACK_IMG }} />
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <div className="hero-info">
