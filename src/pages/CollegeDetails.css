@@ -211,6 +211,200 @@
   margin-top: 0.5rem;
 }
 
+.hero-rating {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.star-rating-display {
+  color: #fbbf24;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.rating-text {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.875rem;
+}
+
+/* Rank Predictor */
+.rank-predictor-box {
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.rank-input-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.rank-input {
+  flex: 1;
+  max-width: 250px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.rank-input:focus {
+  border-color: var(--accent-blue);
+}
+
+.rank-result {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-align: center;
+}
+
+.rank-eligible {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.rank-likely-eligible {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #ca8a04;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.rank-not-recommended {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.rank-check-college-website {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.rank-result-text {
+  font-size: 1rem;
+}
+
+/* Review Form */
+.review-form-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+}
+
+.review-form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.review-input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.review-input:focus {
+  border-color: var(--accent-blue);
+}
+
+.star-selector {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--border-color);
+  cursor: pointer;
+  transition: color 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.star-btn.active {
+  color: #fbbf24;
+}
+
+.star-btn:hover {
+  color: #fbbf24;
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.review-textarea:focus {
+  border-color: var(--accent-blue);
+}
+
+/* Similar Colleges */
+.similar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.similar-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background-color 0.2s;
+}
+
+.similar-card:hover {
+  background-color: var(--bg-secondary);
+}
+
+.similar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.similar-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.similar-arrow {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
 .mt-2 { margin-top: 0.5rem; }
 .mt-4 { margin-top: 1.5rem; }
 
@@ -225,5 +419,15 @@
   }
   .quick-stats, .placement-stats {
     grid-template-columns: 1fr;
+  }
+  .review-form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rank-input-row {
+    flex-direction: column;
+  }
+  .rank-input {
+    max-width: 100%;
   }
 }

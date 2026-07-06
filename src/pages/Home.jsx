@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import CollegeCard from '../components/CollegeCard';
@@ -7,13 +7,68 @@ import './Home.css';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [selectedIdx, setSelectedIdx] = useState(-1);
   const navigate = useNavigate();
+  const wrapRef = useRef(null);
+
+  useEffect(() => {
+    if (searchQuery.trim().length < 2) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+    const q = searchQuery.toLowerCase();
+    const matches = colleges
+      .filter(c =>
+        c.name.toLowerCase().includes(q) ||
+        c.shortName.toLowerCase().includes(q) ||
+        (c.coursesOffered || []).some(co => co.toLowerCase().includes(q))
+      )
+      .slice(0, 6);
+    setSuggestions(matches);
+    setShowSuggestions(matches.length > 0);
+    setSelectedIdx(-1);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/course/all?q=${encodeURIComponent(searchQuery)}`);
     }
+  };
+
+  const handleKeyDown = (e) => {
+    if (!showSuggestions) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIdx(i => Math.min(i + 1, suggestions.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIdx(i => Math.max(i - 1, 0));
+    } else if (e.key === 'Enter' && selectedIdx >= 0) {
+      e.preventDefault();
+      navigate(`/college/${suggestions[selectedIdx].id}`);
+      setShowSuggestions(false);
+      setSearchQuery('');
+    }
+  };
+
+  const selectSuggestion = (college) => {
+    navigate(`/college/${college.id}`);
+    setShowSuggestions(false);
+    setSearchQuery('');
   };
 
   const featuredColleges = colleges.slice(0, 3);
@@ -33,17 +88,35 @@ const Home = () => {
             Explore the top Engineering, MBA, BBA, and B.Com colleges in Bangalore.
             Compare fees, placements, and rankings with our modern platform.
           </p>
-          
-          <form className="search-bar-wrap" onSubmit={handleSearch}>
+
+          <form className="search-bar-wrap" onSubmit={handleSearch} ref={wrapRef}>
             <Search className="search-icon" size={20} />
-            <input 
-              type="text" 
-              className="search-input" 
-              placeholder="Search for colleges, courses, or locations..." 
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search for colleges, courses, or locations..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleKeyDown}
+              onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
+              autoComplete="off"
             />
             <button type="submit" className="btn-primary search-btn">Search</button>
+            {showSuggestions && (
+              <div className="search-suggestions">
+                {suggestions.map((c, i) => (
+                  <div
+                    key={c.id}
+                    className={`suggestion-item ${i === selectedIdx ? 'selected' : ''}`}
+                    onClick={() => selectSuggestion(c)}
+                    onMouseEnter={() => setSelectedIdx(i)}
+                  >
+                    <span className="suggestion-name">{c.shortName}</span>
+                    <span className="suggestion-cat">{c.category}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </form>
         </div>
       </section>

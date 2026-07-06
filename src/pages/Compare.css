@@ -73,5 +73,79 @@
   border: 4px solid var(--bg-secondary);
 }
 
+.compare-charts {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.chart-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.chart-value {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.chart-bar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-bar-track {
+  flex: 1;
+  height: 12px;
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+  min-width: 4px;
+}
+
+.fee-bar {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+}
+
+.pkg-bar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.chart-bar-label {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  width: 70px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
 .text-center { text-align: center; }
 .mb-4 { margin-bottom: 2rem; }

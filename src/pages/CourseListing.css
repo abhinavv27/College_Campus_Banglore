@@ -9,6 +9,14 @@
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.listing-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .listing-content {
@@ -19,7 +27,7 @@
 
 .filter-sidebar {
   position: sticky;
-  top: 90px; /* Below navbar */
+  top: 90px;
   height: fit-content;
 }
 
@@ -45,6 +53,42 @@
 
 .filter-select:focus {
   border-color: var(--accent-blue);
+}
+
+.sort-select {
+  width: auto;
+  min-width: 180px;
+  padding: 0.5rem 0.75rem;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: var(--accent-blue);
+}
+
+.course-filter-wrap {
+  position: relative;
+}
+
+.course-filter-icon {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+}
+
+.course-filter-input {
+  padding-left: 1.75rem;
 }
 
 .empty-state {
@@ -79,6 +123,13 @@
 @media (max-width: 768px) {
   .listing-content {
     grid-template-columns: 1fr;
+  }
+  .listing-header-actions {
+    width: 100%;
+  }
+  .sort-select {
+    flex: 1;
+    min-width: 0;
   }
   .filter-sidebar {
     position: fixed;
