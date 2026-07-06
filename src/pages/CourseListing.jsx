@@ -16,12 +16,8 @@ const CourseListing = () => {
     let result = colleges;
     
     // Filter by Category
-    if (category === 'Engineering') {
-      result = result.filter(c => c.category === 'Engineering');
-    } else if (category === 'BBA') {
-      result = result.filter(c => c.category === 'BBA');
-    } else if (category === 'B.Com') {
-      result = result.filter(c => c.category === 'B.Com');
+    if (category) {
+      result = result.filter(c => c.category === category);
     }
 
     // Filter by Search Query

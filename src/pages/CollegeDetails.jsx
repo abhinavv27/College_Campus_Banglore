@@ -24,17 +24,24 @@ const CollegeDetails = () => {
   const isFav = favorites.includes(college.id);
   const isCompared = compareList.includes(college.id);
 
+  const courses = college.coursesOffered || [];
+  const recruiters = college.topRecruiters || [];
+  const reviews = college.reviews || [];
+  const facilities = college.facilities || [];
+  const prosList = college.pros || [];
+  const consList = college.cons || [];
+
   return (
     <div className="animate-fade-in college-details-page">
       {/* Hero Banner */}
       <div className="details-hero">
-        <img src={college.gallery[0]} alt={college.name} className="hero-bg" onError={(e) => { e.target.src = FALLBACK_IMG }} />
+        <img src={college.photo} alt={college.name} className="hero-bg" onError={(e) => { e.target.src = FALLBACK_IMG }} />
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <div className="hero-info">
             <h1 className="heading-1" style={{ color: '#fff', marginBottom: '1rem' }}>{college.name}</h1>
             <div className="hero-tags">
-              <span className="badge">NAAC {college.naacGrade}</span>
+              {college.naacGrade && <span className="badge">NAAC {college.naacGrade}</span>}
               {college.nirfRank && <span className="badge">NIRF {college.nirfRank}</span>}
               <span className="badge">{college.category}</span>
             </div>
@@ -55,34 +62,34 @@ const CollegeDetails = () => {
           {/* Overview */}
           <section className="card details-section">
             <h2 className="heading-2 section-title">Overview</h2>
-            <p className="body-text">{college.overview}</p>
+            <p className="body-text">{college.overview || 'Information is being updated for this college.'}</p>
             <div className="quick-stats">
               <div className="q-stat">
                 <IndianRupee className="q-icon" size={20} />
                 <div>
                   <span className="q-label">Total Fees</span>
-                  <span className="q-value">{college.fees}</span>
+                  <span className="q-value">{college.fees || '—'}</span>
                 </div>
               </div>
               <div className="q-stat">
                 <Award className="q-icon" size={20} />
                 <div>
                   <span className="q-label">Highest Package</span>
-                  <span className="q-value">{college.highestPackage}</span>
+                  <span className="q-value">{college.highestPackage || '—'}</span>
                 </div>
               </div>
               <div className="q-stat">
                 <Briefcase className="q-icon" size={20} />
                 <div>
                   <span className="q-label">Avg Package</span>
-                  <span className="q-value">{college.averagePackage}</span>
+                  <span className="q-value">{college.averagePackage || '—'}</span>
                 </div>
               </div>
               <div className="q-stat">
                 <GraduationCap className="q-icon" size={20} />
                 <div>
                   <span className="q-label">Admission Mode</span>
-                  <span className="q-value">{college.admissionMode}</span>
+                  <span className="q-value">{college.admissionMode || '—'}</span>
                 </div>
               </div>
             </div>
@@ -91,14 +98,18 @@ const CollegeDetails = () => {
           {/* Courses */}
           <section className="card details-section">
             <h2 className="heading-2 section-title">Courses Offered</h2>
-            <div className="course-tags">
-              {college.coursesOffered.map((course, idx) => (
-                <span key={idx} className="badge course-badge">{course}</span>
-              ))}
-            </div>
+            {courses.length > 0 ? (
+              <div className="course-tags">
+                {courses.map((course, idx) => (
+                  <span key={idx} className="badge course-badge">{course}</span>
+                ))}
+              </div>
+            ) : (
+              <p className="body-text text-muted">Course details coming soon.</p>
+            )}
             <div className="eligibility-box">
               <h4 className="heading-3">Eligibility</h4>
-              <p className="body-text">{college.eligibility}</p>
+              <p className="body-text">{college.eligibility || 'Information coming soon.'}</p>
             </div>
           </section>
 
@@ -107,81 +118,99 @@ const CollegeDetails = () => {
             <h2 className="heading-2 section-title">Placements & Recruiters</h2>
             <div className="placement-stats">
               <div className="p-stat-box">
-                <span className="p-val">{college.placementPercentage}</span>
+                <span className="p-val">{college.placementPercentage || '—'}</span>
                 <span className="p-lab">Placement Rate</span>
               </div>
               <div className="p-stat-box">
-                <span className="p-val">{college.averagePackage}</span>
+                <span className="p-val">{college.averagePackage || '—'}</span>
                 <span className="p-lab">Average Salary</span>
               </div>
               <div className="p-stat-box">
-                <span className="p-val">{college.highestPackage}</span>
+                <span className="p-val">{college.highestPackage || '—'}</span>
                 <span className="p-lab">Highest Salary</span>
               </div>
             </div>
-            <h4 className="heading-3" style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>Top Recruiters</h4>
-            <div className="recruiter-tags">
-              {college.topRecruiters.map((recruiter, idx) => (
-                <span key={idx} className="badge recruiter-badge">{recruiter}</span>
-              ))}
-            </div>
+            {recruiters.length > 0 && (
+              <>
+                <h4 className="heading-3" style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>Top Recruiters</h4>
+                <div className="recruiter-tags">
+                  {recruiters.map((recruiter, idx) => (
+                    <span key={idx} className="badge recruiter-badge">{recruiter}</span>
+                  ))}
+                </div>
+              </>
+            )}
           </section>
 
           {/* Reviews */}
-          <section className="card details-section">
-            <h2 className="heading-2 section-title">Student Reviews</h2>
-            <div className="reviews-list">
-              {college.reviews.map((rev, idx) => (
-                <div key={idx} className="review-item">
-                  <div className="reviewer-info">
-                    <span className="reviewer-name font-semibold">{rev.user}</span>
-                    <span className="reviewer-rating">★ {rev.rating}/5</span>
+          {reviews.length > 0 && (
+            <section className="card details-section">
+              <h2 className="heading-2 section-title">Student Reviews</h2>
+              <div className="reviews-list">
+                {reviews.map((rev, idx) => (
+                  <div key={idx} className="review-item">
+                    <div className="reviewer-info">
+                      <span className="reviewer-name font-semibold">{rev.user}</span>
+                      <span className="reviewer-rating">★ {rev.rating}/5</span>
+                    </div>
+                    <p className="body-text mt-2">{rev.comment}</p>
                   </div>
-                  <p className="body-text mt-2">{rev.comment}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
         </main>
 
         <aside className="details-sidebar">
           {/* Quick Info */}
           <div className="card side-card">
             <h3 className="heading-3 side-title">Campus & Facilities</h3>
-            <ul className="facilities-list">
-              {college.facilities.map((fac, idx) => (
-                <li key={idx}>
-                  <Building size={16} /> {fac}
-                </li>
-              ))}
-            </ul>
+            {facilities.length > 0 ? (
+              <ul className="facilities-list">
+                {facilities.map((fac, idx) => (
+                  <li key={idx}>
+                    <Building size={16} /> {fac}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="body-text text-muted">Facility details coming soon.</p>
+            )}
             <div className="hostel-info mt-4">
-              <strong>Hostel Fees:</strong> {college.hostelFees}
+              <strong>Hostel Fees:</strong> {college.hostelFees || '—'}
             </div>
           </div>
 
           {/* Pros & Cons */}
-          <div className="card side-card">
-            <h3 className="heading-3 side-title">Pros & Cons</h3>
-            <div className="pros-cons">
-              <div className="pros">
-                <strong>Pros</strong>
-                <ul>
-                  {college.pros.map((pro, idx) => <li key={idx}>{pro}</li>)}
-                </ul>
-              </div>
-              <div className="cons mt-4">
-                <strong>Cons</strong>
-                <ul>
-                  {college.cons.map((con, idx) => <li key={idx}>{con}</li>)}
-                </ul>
+          {(prosList.length > 0 || consList.length > 0) && (
+            <div className="card side-card">
+              <h3 className="heading-3 side-title">Pros & Cons</h3>
+              <div className="pros-cons">
+                {prosList.length > 0 && (
+                  <div className="pros">
+                    <strong>Pros</strong>
+                    <ul>
+                      {prosList.map((pro, idx) => <li key={idx}>{pro}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {consList.length > 0 && (
+                  <div className="cons mt-4">
+                    <strong>Cons</strong>
+                    <ul>
+                      {consList.map((con, idx) => <li key={idx}>{con}</li>)}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
+          )}
 
-          <a href={college.website} target="_blank" rel="noopener noreferrer" className="btn-primary full-width mt-4" style={{ justifyContent: 'center' }}>
-            <Globe size={18} /> Official Website
-          </a>
+          {college.website && (
+            <a href={college.website} target="_blank" rel="noopener noreferrer" className="btn-primary full-width mt-4" style={{ justifyContent: 'center' }}>
+              <Globe size={18} /> {college.website.includes('pagalguy') ? 'View on PaGaLGuY' : 'Official Website'}
+            </a>
+          )}
         </aside>
       </div>
     </div>
