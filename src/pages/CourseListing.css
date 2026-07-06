@@ -56,11 +56,47 @@
   border-radius: var(--radius-lg);
 }
 
+.filter-badge {
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+.filter-btn.active {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .listing-content {
     grid-template-columns: 1fr;
   }
   .filter-sidebar {
-    position: static;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    z-index: 1000;
+    padding: 1rem;
+    background-color: var(--bg-primary);
+    box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+  .filter-sidebar.open {
+    left: 0;
+  }
+  .listing-content.filters-visible .college-grid {
+    display: none;
   }
 }

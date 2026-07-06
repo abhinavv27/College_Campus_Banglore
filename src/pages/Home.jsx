@@ -12,15 +12,14 @@ const Home = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // For simplicity, redirect to Engineering with search query in state or just filter.
-      // A more robust implementation would use query params. Let's just navigate to course for now.
-      navigate(`/course/Engineering?q=${searchQuery}`);
+      navigate(`/course/all?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 
-  const featuredColleges = colleges.slice(0, 3); // RVCE, PESU, MSRIT (Top 3 B.Tech)
+  const featuredColleges = colleges.slice(0, 3);
   const topMBA = colleges.filter(c => c.category === 'MBA').slice(0, 3);
   const topBBA = colleges.filter(c => c.category === 'BBA').slice(0, 3);
+  const topBCom = colleges.filter(c => c.category === 'B.Com').slice(0, 3);
 
   return (
     <div className="animate-fade-in">
@@ -88,6 +87,21 @@ const Home = () => {
           </div>
           <div className="college-grid">
             {topBBA.map(college => (
+              <CollegeCard key={college.id} college={college} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Top B.Com */}
+      <section className="section bg-secondary">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="heading-2">Top B.Com Colleges</h2>
+            <button className="btn-secondary" onClick={() => navigate('/course/B.Com')}>View All</button>
+          </div>
+          <div className="college-grid">
+            {topBCom.map(college => (
               <CollegeCard key={college.id} college={college} />
             ))}
           </div>
